@@ -97,7 +97,7 @@ footer div {
 section#calculator {
     margin: 50px;
     display: block;
-    width: 240px;
+    width: 260px;
     padding: 10px;
     background-color: lightsteelblue;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -131,7 +131,7 @@ button.special:hover {
 }
 
 input.calculator_input {
-    width: 165px;
+    width: 180px;
     height: 32px;
     padding-left: 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
