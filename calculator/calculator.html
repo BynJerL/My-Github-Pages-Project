@@ -96,7 +96,11 @@
                     case 'DEL': 
                         if (inputField.value !== '0') {
                             inputField.value = inputField.value.slice(0, -1) || '0';
-                        }     
+
+                            if (inputField.value === '-') {
+                                inputField.value = '0';
+                            }
+                        }
                         break;
                     case '+':
                     case '-':
