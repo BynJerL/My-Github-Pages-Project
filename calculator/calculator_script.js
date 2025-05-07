@@ -132,6 +132,8 @@ specialButtons.forEach(button => {
             case 'MC':
                 memory = null;
                 break;
+            case 'R':
+                inputField.value = firstNumber || 0;
             default:
                 console.error(`Unhandled special button: ${clickedValue}`);
         }
