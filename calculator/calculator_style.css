@@ -1,13 +1,101 @@
+* { box-sizing: border-box; }
+
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
-    margin: 0; /* Remove default margin */
-    background-color: lightgray; /* Optional: Add a background color */
+    min-height: 100vh; /* Full viewport height */
+    margin: 0; 
+    background-color: lightgray;
+}
+
+header {
+    background-color: darkslateblue;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+header a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    background-color: rgb(85, 73, 158);
+}
+
+header nav a.active {
+    background-color: darkslateblue;
+}
+
+header nav {
+    float: right;
+}
+
+footer {
+    background-color: darkslateblue; 
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer section#get-connected {
+    margin-bottom: 10px;
+}
+
+footer div {
+    margin: 10px auto;
+    border-top: 2px solid white;
+    width: 90%;
+}
+
+@media screen and (max-width: 500px) {
+    header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    nav {
+        float: none;
+        width: 100%;
+    }
 }
 
 section#calculator {
+    margin: 50px;
     display: block;
     width: 240px;
     padding: 10px;
