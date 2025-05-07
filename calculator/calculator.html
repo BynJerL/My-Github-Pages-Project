@@ -71,6 +71,9 @@
                     if (clickedValue !== '0' && clickedValue !== '00') {
                         inputField.value = clickedValue;
                     }
+                } else if (currentValue === 'Infinity' || 
+                           currentValue == 'NaN') {
+                    // Do Nothing
                 } else if (inputField.value.length < 15) {
                     if (button.textContent === '00' && inputField.value.length === 14) {
                         inputField.value += '0';
@@ -94,7 +97,10 @@
                         inputField.value = '0';
                         break;
                     case 'DEL': 
-                        if (inputField.value !== '0') {
+                        if (inputField.value !== '0' &&
+                            inputField.value !== 'Infinity' &&
+                            inputField.value !== 'NaN'
+                        ) {
                             inputField.value = inputField.value.slice(0, -1) || '0';
 
                             if (inputField.value === '-') {
@@ -142,12 +148,16 @@
                         }
                         break;
                     case '.':
-                        if (!inputField.value.includes('.')) {
+                        if (!inputField.value.includes('.') &&
+                            inputField.value !== 'Infinity' &&
+                            inputField.value !== 'NaN') {
                             inputField.value += '.';
                         }
                         break;
                     case '+/-': 
-                        if (inputField.value !== '0') {
+                        if (inputField.value !== '0' &&
+                            inputField.value !== 'NaN'
+                        ) {
                             if (inputField.value.startsWith('-')) {
                                 inputField.value = inputField.value.slice(1);
                             } else {
