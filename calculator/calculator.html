@@ -142,7 +142,15 @@
                             inputField.value += '.';
                         }
                         break;
-                    
+                    case '+/-': 
+                        if (inputField.value !== '0') {
+                            if (inputField.value.startsWith('-')) {
+                                inputField.value = inputField.value.slice(1);
+                            } else {
+                                inputField.value = '-' + inputField.value;
+                            }
+                        }
+                        break;
                     default:
                         console.error(`Unhandled special button: ${clickedValue}`);
                 }
