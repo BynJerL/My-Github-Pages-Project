@@ -1,0 +1,33 @@
+button.calculator_button {
+    width: 50px;
+    height: 37px;
+    margin: 3px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    border: 1px solid black;
+}
+
+button.number {
+    background-color: teal;
+}
+
+button.number:hover {
+    background-color: rgb(31, 172, 172);
+}
+
+button.special {
+    font-weight: bold;
+    background-color: darkslateblue;
+}
+
+button.special:hover {
+    background-color: blueviolet;
+}
+
+input.calculator_input {
+    width: 165px;
+    height: 32px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}

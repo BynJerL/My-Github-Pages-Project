@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator_style.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="3">
+                <input type="text" class="calculator_input" value="0" readonly>
+            </td>
+            <td><button class="calculator_button special">C</button></td>
+        </tr>
+        <tr>
+            <td><button class="calculator_button number">7</button></td>
+            <td><button class="calculator_button number">8</button></td>
+            <td><button class="calculator_button number">9</button></td>
+            <td><button class="calculator_button special">/</button></td>
+        </tr>
+        <tr>
+            <td><button class="calculator_button number">4</button></td>
+            <td><button class="calculator_button number">5</button></td>
+            <td><button class="calculator_button number">6</button></td>
+            <td><button class="calculator_button special">×</button></td>
+        </tr>
+        <tr>
+            <td><button class="calculator_button number">1</button></td>
+            <td><button class="calculator_button number">2</button></td>
+            <td><button class="calculator_button number">3</button></td>
+            <td><button class="calculator_button special">-</button></td>
+        </tr>
+        <tr>
+            <td><button class="calculator_button number">0</button></td>
+            <td><button class="calculator_button special">.</button></td>
+            <td><button class="calculator_button special">=</button></td>
+            <td><button class="calculator_button special">+</button></td>
+        </tr>
+    </table>
+    <script>
+        var firstNumber = null;
+        var secondNumber = null;
+        var operation = null;
+        var result = null;
+
+        const inputField = document.querySelector('.calculator_input');
+        const numberButtons = document.querySelectorAll('.calculator_button.number');
+        const specialButtons = document.querySelectorAll('.calculator_button.special');
+
+        numberButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const currentValue = inputField.value;
+                const clickedValue = button.textContent;
+
+                if (currentValue === '0') {
+                    if (clickedValue !== '0') {
+                        inputField.value = clickedValue;
+                    }
+                } else {
+                    inputField.value += button.textContent;
+                }
+            });
+        });
+
+        specialButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const clickedValue = button.textContent;
+
+                switch (clickedValue) {
+                    case 'C':
+                        firstNumber = null;
+                        secondNumber = null;
+                        operation = null;
+                        result = null;
+                        inputField.value = '0';
+                        break;
+                    case '+':
+                    case '-':
+                    case '×':
+                    case '/':
+                        firstNumber = parseFloat(inputField.value);
+                        operation = clickedValue;
+                        inputField.value = 0;
+                        break;
+                    case '=':
+                        if (firstNumber !== null && operation !== null) {
+                            secondNumber = parseFloat(inputField.value);
+                            
+                            switch (operation) {
+                                case '/':
+                                    result = firstNumber / secondNumber;
+                                    break;
+                                case '×':
+                                    result = firstNumber * secondNumber;
+                                    break;
+                                case '+':
+                                    result = firstNumber + secondNumber;
+                                    break;
+                                case '-':
+                                    result = firstNumber - secondNumber;
+                                    break;
+                            }
+
+                            inputField.value = result;
+                            firstNumber = result;
+                            secondNumber = null;
+                            operation = null;
+                        }
+                        break;
+                    case '.':
+                        if (!inputField.value.includes('.')) {
+                            inputField.value += '.';
+                        }
+                        break;
+                    
+                    default:
+                        console.error(`Unhandled special button: ${clickedValue}`);
+                }
+            })
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+div#dice {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    background-image: url('assets/img/0.png');
+}
+
+#dice-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 100px); /* Start with 2 columns */
+    gap: 20px; /* Space between dice */
+    place-items: center;
+}
+
+#dice-wrapper .dice {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    background-image: url('assets/img/0.png');
+    background-color: teal;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#dice-wrapper .dice:nth-child(3) {
+    grid-column: span 2; /* Center the third dice by spanning two columns */
+    justify-self: center; /* Center the dice horizontally */
+}
+
+button {
+    padding: 10px;
+    background: teal;
+    border-color: #234256;
+    border-width: 1px;
+    border-style: solid;
+    /* border-radius: 10px; */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+button#roll-toggle {
+    margin: 20px 0px;
+    padding: 10px 30px;
+    border-radius: 20px;
+}
+
+button#roll-toggle:disabled {
+    background-color: gray;
+}
+
+section#dice-container {
+    /* height: 300px; */
+    display: grid;
+    place-items: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: lightblue;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px skyblue;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+body.dark-mode a {
+    color: lightblue;
+}
+
+body.dark-mode header {
+    background-color: #333;
+}
+
+body.dark-mode header nav a:hover {
+    background-color: #555;
+}
+
+body.dark-mode footer {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode button {
+    background-color: #555; 
+    color: white; 
+    border-color: #777; 
+}
+
+body.dark-mode button#roll-toggle:disabled {
+    background-color: #444; 
+    color: #888; 
+}
+
+#dice-container > div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#dice-container button.dice-number-controller {
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: teal;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+#dice-container button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+#dice-count {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 5px;
+}
+
+div#dice-number-controller {
+    margin: 10px;
+}

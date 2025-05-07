@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice App</title>
+    <link rel="stylesheet" href="\..\style.css">
+    <link rel="stylesheet" href="dice_style.css">
+</head>
+<body>
+    <script src="dice_script.js"></script>
+    <audio id="dice-audio">
+        <source src="assets/audio/jackpot.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <header>
+        <a href="dice_app.html" class="logo">Dice App</a>
+        <nav>
+            <a href="\..\index.html">Back To Main</a>
+        </nav>
+    </header>
+
+    <section id="dice-container">
+        <h2>Click "Roll" to start</h2>
+        <div id="dice-number-controller">
+            <button class="dice-number-controller" id="decrease-dice" onclick="decrease_dice()">-</button>
+            <span id="dice-count">3</span>
+            <button class="dice-number-controller" id="increase-dice" onclick="increase_dice()">+</button>
+        </div>
+        <br>
+        <div id="dice-wrapper">
+        </div>
+        <!-- <div id="dice" onclick="dice_click()"></div> -->
+        <p id="roll-result">&ThinSpace;</p>
+        <button id="roll-toggle" onclick="roll_dice()">Roll</button>
+        <br>
+        <p>Enable Dark Mode</p>
+        <label class="switch">
+            <input type="checkbox" id="dark-mode-toggle" onchange="toggle_dark_mode()">
+            <span class="slider round"></span>
+        </label>
+        <br>
+    </section>
+
+    <footer>
+        <section id="get-connected">
+            <p>Contact me at: <a href="mailto:example@example.com">example@example.com</a></p>
+            <p>Follow me on <a href="https://instagram.com/byn.legi" target="_blank">Instagram</a> | <a href="https://github.com/bynjerl" target="_blank">GitHub</a></p>
+            <div style="border-top: 2px solid white; width: 96%;"></div>
+        </section>
+        <br>
+        <p>BynJerL &copy 2025</p>
+    </footer>
+</body>
+</html>
