@@ -65,12 +65,15 @@ specialButtons.forEach(button => {
             case '/':
                 if (operation === null) {
                     firstNumber = parseFloat(inputField.value);
-                    inputField.value = 0;
+                    inputField.value = '';
                 }
                 operation = clickedValue;
                 break;
             case '=':
-                if (firstNumber !== null && operation !== null) {
+                if (firstNumber !== null && 
+                    operation !== null &&
+                    inputField.value !== ''
+                ) {
                     secondNumber = parseFloat(inputField.value);
                     
                     switch (operation) {
@@ -92,8 +95,10 @@ specialButtons.forEach(button => {
                     }
 
                     result = roundToPrecision(result);
-
                     inputField.value = result;
+
+                    console.log(`${firstNumber} ${operation} ${secondNumber} = ${result}`);
+
                     firstNumber = result;
                     secondNumber = null;
                     operation = null;
@@ -136,6 +141,7 @@ specialButtons.forEach(button => {
                 break;
             case 'R':
                 inputField.value = firstNumber || 0;
+                break;
             default:
                 console.error(`Unhandled special button: ${clickedValue}`);
         }
