@@ -63,9 +63,11 @@ specialButtons.forEach(button => {
             case '×':
             case '%':
             case '/':
-                firstNumber = parseFloat(inputField.value);
+                if (operation === null) {
+                    firstNumber = parseFloat(inputField.value);
+                    inputField.value = 0;
+                }
                 operation = clickedValue;
-                inputField.value = 0;
                 break;
             case '=':
                 if (firstNumber !== null && operation !== null) {
