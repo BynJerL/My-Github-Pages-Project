@@ -71,7 +71,7 @@
                     if (clickedValue !== '0') {
                         inputField.value = clickedValue;
                     }
-                } else {
+                } else if (inputField.value.length < 15) {
                     inputField.value += button.textContent;
                 }
             });
