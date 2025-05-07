@@ -77,7 +77,6 @@
                     } else {
                         inputField.value += button.textContent;
                     }
-                    
                 }
             });
         });
@@ -102,6 +101,7 @@
                     case '+':
                     case '-':
                     case '×':
+                    case '%':
                     case '/':
                         firstNumber = parseFloat(inputField.value);
                         operation = clickedValue;
@@ -117,6 +117,9 @@
                                     break;
                                 case '×':
                                     result = firstNumber * secondNumber;
+                                    break;
+                                case '%': 
+                                    result = firstNumber % secondNumber;
                                     break;
                                 case '+':
                                     result = firstNumber + secondNumber;
