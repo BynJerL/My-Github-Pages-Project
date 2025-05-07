@@ -40,6 +40,10 @@
         </tr>
     </table>
     <script>
+        function roundToPrecision(value, precision = 10) {
+            return Math.round(value * Math.pow(10, precision)) / Math.pow(10, precision);
+        }
+
         var firstNumber = null;
         var secondNumber = null;
         var operation = null;
@@ -102,6 +106,8 @@
                                     result = firstNumber - secondNumber;
                                     break;
                             }
+
+                            result = roundToPrecision(result);
 
                             inputField.value = result;
                             firstNumber = result;
