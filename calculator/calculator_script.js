@@ -6,6 +6,7 @@ var firstNumber = null;
 var secondNumber = null;
 var operation = null;
 var result = null;
+var memory = null;
 
 const inputField = document.querySelector('.calculator_input');
 const numberButtons = document.querySelectorAll('.calculator_button.number');
@@ -113,6 +114,23 @@ specialButtons.forEach(button => {
                         inputField.value = '-' + inputField.value;
                     }
                 }
+                break;
+            case 'MS':
+                if (inputField.value !== 'Infinity' &&
+                    inputField.value !== 'NaN'
+                ) {
+                    memory = parseFloat(inputField.value);
+                }
+                break;
+            case 'MR':
+                if (memory !== null) {
+                    inputField.value = memory;
+                } else {
+                    inputField.value = '0';
+                }
+                break;
+            case 'MC':
+                memory = null;
                 break;
             default:
                 console.error(`Unhandled special button: ${clickedValue}`);
