@@ -68,11 +68,16 @@
                 const clickedValue = button.textContent;
 
                 if (currentValue === '0') {
-                    if (clickedValue !== '0') {
+                    if (clickedValue !== '0' && clickedValue !== '00') {
                         inputField.value = clickedValue;
                     }
                 } else if (inputField.value.length < 15) {
-                    inputField.value += button.textContent;
+                    if (button.textContent === '00' && inputField.value.length === 14) {
+                        inputField.value += '0';
+                    } else {
+                        inputField.value += button.textContent;
+                    }
+                    
                 }
             });
         });
@@ -88,6 +93,11 @@
                         operation = null;
                         result = null;
                         inputField.value = '0';
+                        break;
+                    case 'DEL': 
+                        if (inputField.value !== '0') {
+                            inputField.value = inputField.value.slice(0, -1) || '0';
+                        }     
                         break;
                     case '+':
                     case '-':
